@@ -1,2 +1,2 @@
-# cfgoHelper
-Small function scripts without many dependencies
+# assistant
+Small function scripts with little dependencies
