@@ -8,6 +8,10 @@ name: lint
 jobs:
   lint:
     runs-on: windows-latest
+
+    env:
+      GITHUB_PAT: ${{ secrets.GH_PAT }}
+      
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
