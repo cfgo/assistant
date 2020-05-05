@@ -1,6 +1,6 @@
 #cfgo_badge
 
-#' Use livecycle badges in your documentation
+#' Use lifecycle badges in your documentation
 #' 
 #' Use badges in your function documentation to explain the current status
 #' of the function.You can choose between four different badges: "experimental", 
@@ -23,9 +23,31 @@
 #' choose one of "experimental", "questioning ", "stable" and 
 #' "deprecated".
 #' 
-#' 
-#' @example inst/examples/example_cfgo_badge.R
+#' @examples 
+#' assistant::cfgo_badge("questioning")
 #'  
+#' @section How to use in function documentation:
+#'  1. run `usethis::use_lifecycle()`\cr
+#'  2. Use the following script for the badges:
+#'   
+#'  #' Title\cr
+#'  #' \cr
+#'  #' Here ist the discription\cr
+#'  #' \\Sexpr[results=rd, stage=render]assistant::cfgo_badge("questioning")\cr
+#'  #'\cr
+#'  #' @@param variables\cr
+#'  #'\cr
+#'  #' @@return\cr
+#'  #' @@export\cr
+#'  #'\cr
+#'  #' @@section Questioning:\cr
+#'  #' Please describe briefly the questioned part. For more detailed
+#'  information refer to the github issue.\cr
+#'  #' \cr
+#'  my_function <- function(variables) \{
+#'  
+#'  \}
+#' 
 #' @export
 
 cfgo_badge <- function(stage) {

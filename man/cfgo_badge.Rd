@@ -2,7 +2,7 @@
 % Please edit documentation in R/cfgo_badge.R
 \name{cfgo_badge}
 \alias{cfgo_badge}
-\title{Use livecycle badges in your documentation}
+\title{Use lifecycle badges in your documentation}
 \usage{
 cfgo_badge(stage)
 }
@@ -29,29 +29,31 @@ into your documentation. To check if it works, you have to rebuild your
 source package (Ctrl+Shit+B). For the other badge options just replace 
 `questioning` in the code.
 }
-\examples{
-if (interactive()){
-#First run usethis::use_lifecycle()
-#Now you can use the following script to tryout the badges
+\section{How to use in function documentation}{
+
+ 1. run `usethis::use_lifecycle()`\cr
+ 2. Use the following script for the badges:
   
-#' Title
-#' 
-#' Here ist the discription
-#' \Sexpr[results=rd, stage=render]assistant::cfgo_badge("questioning")
-#'
-#' @param variables 
-#'
-#' @return
-#' @export
-#'
-#' @section Questioning 
-#' Here is the reason why the function is questioned.
-#' 
- my_function <- function(variables) {
-    
-  }
-  
-  
+ #' Title\cr
+ #' \cr
+ #' Here ist the discription\cr
+ #' \\Sexpr[results=rd, stage=render]assistant::cfgo_badge("questioning")\cr
+ #'\cr
+ #' @param variables\cr
+ #'\cr
+ #' @return\cr
+ #' @export\cr
+ #'\cr
+ #' @section Questioning:\cr
+ #' Please describe briefly the questioned part. For more detailed
+ information refer to the github issue.\cr
+ #' \cr
+ my_function <- function(variables) \{
+ 
+ \}
 }
 
+\examples{
+assistant::cfgo_badge("questioning")
+ 
 }
