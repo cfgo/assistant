@@ -11,8 +11,10 @@
 #' `usethis::use_lifecycle()` in the console. This will create the directory
 #' `figures/` in  `man/`. `figures` containes badge images in form of `.svg` 
 #' files. Then you can create badges in your functions. If you want to add
-#' for example the badge "questioning" in your documentation, just copy and
-#' paste `\\Sexpr[results=rd, stage=render]{assistant::cfgo_badge("questioning")}` 
+#' for example the badge "questioning" in your documentation, just copy and paste
+#' \cr\cr
+#' `\\Sexpr[results=rd, stage=render]{assistant::cfgo_badge("questioning")}`
+#' \cr\cr
 #' into your documentation. To check if it works, you have to rebuild your 
 #' source package (Ctrl+Shit+B). For the other badge options just replace 
 #' `questioning` in the code.
@@ -22,14 +24,13 @@
 #' "deprecated".
 #' 
 #' 
-#' @examples
-#'  cfgo_badge("questioning") 
+#' @example inst/examples/example_cfgo_badge.R
 #'  
 #' @export
 
 cfgo_badge <- function(stage) {
   #Checks-------------------------------------------------------------------------
-  assistant::check_class(stage, "character", fun_name = "cfgo_badge")
+  cfgoTest::check_class(stage, "character", fun_name = "cfgo_badge")
   stage <- rlang::arg_match(stage, c("experimental", "questioning", "stable", 
                                      "deprecated"))
   #-------------------------------------------------------------------------------
@@ -39,12 +40,13 @@ cfgo_badge <- function(stage) {
   sprintf("\\ifelse{html}{%s}{\\strong{%s}}", img, upcase1(stage))
 }
 
+
 cfgo_lifecycle_img <- function(stage, url) {
   #Checks-------------------------------------------------------------------------
-  assistant::check_class(stage, "character", fun_name = "cfgo_lifecycle_img")
+  cfgoTest::check_class(stage, "character", fun_name = "cfgo_lifecycle_img")
   stage <- rlang::arg_match(stage, c("experimental", "questioning", "stable", 
                                      "deprecated"))
-  assistant::check_class(url, "character", fun_name = "cfgo_lifecycle_img")
+  cfgoTest::check_class(url, "character", fun_name = "cfgo_lifecycle_img")
   #-------------------------------------------------------------------------------  
   file <- sprintf("lifecycle-%s.svg", stage)
   stage_alt <- upcase1(stage)
@@ -73,7 +75,7 @@ cfgo_lifecycle_img <- function(stage, url) {
              stage_alt
            ),
          
-         abort(sprintf("Unknown lifecycle stage `%s`", stage))
+         rlang::abort(sprintf("Unknown lifecycle stage `%s`", stage))
   )
 }
 

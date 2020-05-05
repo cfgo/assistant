@@ -21,13 +21,37 @@ Before you can use `cfgo_badge` in your source package you have to run
 `usethis::use_lifecycle()` in the console. This will create the directory
 `figures/` in  `man/`. `figures` containes badge images in form of `.svg` 
 files. Then you can create badges in your functions. If you want to add
-for example the badge "questioning" in your documentation, just copy and
-paste `\\Sexpr[results=rd, stage=render]{assistant::cfgo_badge("questioning")}` 
+for example the badge "questioning" in your documentation, just copy and paste
+\cr\cr
+`\\Sexpr[results=rd, stage=render]{assistant::cfgo_badge("questioning")}`
+\cr\cr
 into your documentation. To check if it works, you have to rebuild your 
 source package (Ctrl+Shit+B). For the other badge options just replace 
 `questioning` in the code.
 }
 \examples{
- cfgo_badge("questioning") 
- 
+if (interactive()){
+#First run usethis::use_lifecycle()
+#Now you can use the following script to tryout the badges
+  
+#' Title
+#' 
+#' Here ist the discription
+#' \Sexpr[results=rd, stage=render]assistant::cfgo_badge("questioning")
+#'
+#' @param variables 
+#'
+#' @return
+#' @export
+#'
+#' @section Questioning 
+#' Here is the reason why the function is questioned.
+#' 
+ my_function <- function(variables) {
+    
+  }
+  
+  
+}
+
 }
