@@ -12,9 +12,14 @@ Imports:
     roxygen2,
     attempt,
     stringr,
-    rlang
+    rlang,
+    cfgoTest
+Remotes: 
+    TFcfgo/cfgoTest,
 RoxygenNote: 7.1.0
 URL: https://github.com/cfgo/assistant
 BugReports: https://github.com/cfgo/assistant/issues
 Depends: R (>= 3.6.0)
-Suggests: tinytest
+Suggests: 
+    tinytest,
+    testthat
