@@ -2,5 +2,4 @@
 
 export(adjust_Konto)
 export(cfgo_badge)
-export(check_class)
 export(clear_document_reload)
