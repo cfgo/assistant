@@ -29,7 +29,7 @@ clear_document_reload <- function() {
     silent = TRUE
   )
   
-  rm(list=ls(all.names = TRUE))
+  rm(list = ls(envir = .GlobalEnv), envir = .GlobalEnv)
   
   # Document and reload your package
   pkg <- getwd()
