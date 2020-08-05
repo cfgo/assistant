@@ -8,9 +8,9 @@
 #' @export
 #'
 #' @examples 
-#'   \dontrun{
-#'     document_and_reload()
-#'   }
+#' \dontrun{
+#'    document_and_reload()
+#' }
 clear_document_reload <- function() {
   
   # Detach all loaded packages and clean your environment

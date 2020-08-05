@@ -55,5 +55,7 @@ source package (Ctrl+Shit+B). For the other badge options just replace
 
 \examples{
 assistant::cfgo_badge("questioning")
- 
+assistant::cfgo_badge("experimental")
+assistant::cfgo_badge("stable")
+assistant::cfgo_badge("deprecated")
 }

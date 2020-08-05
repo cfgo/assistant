@@ -22,9 +22,6 @@
 #' @param stage 
 #' choose one of "experimental", "questioning ", "stable" and 
 #' "deprecated".
-#' 
-#' @examples 
-#' assistant::cfgo_badge("questioning")
 #'  
 #' @section How to use in function documentation:
 #'  1. run `usethis::use_lifecycle()`\cr
@@ -49,12 +46,19 @@
 #'  \}
 #' 
 #' @export
+#' 
+#' @examples 
+#' assistant::cfgo_badge("questioning")
+#' assistant::cfgo_badge("experimental")
+#' assistant::cfgo_badge("stable")
+#' assistant::cfgo_badge("deprecated")
 
 cfgo_badge <- function(stage) {
-  #Checks-------------------------------------------------------------------------
+  
+  # Checks-------------------------------------------------------------------------
   cfgoTest::check_class(stage, "character", fun_name = "cfgo_badge")
-  stage <- rlang::arg_match(stage, c("experimental", "questioning", "stable", 
-                                     "deprecated"))
+  stage <- rlang::arg_match(stage, c("experimental", "questioning", "stable", "deprecated"))
+  
   #-------------------------------------------------------------------------------
   url <- paste0("https://www.tidyverse.org/lifecycle/#", stage)
   img <- cfgo_lifecycle_img(stage, url)

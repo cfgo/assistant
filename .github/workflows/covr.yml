@@ -30,7 +30,7 @@ jobs:
           path_tests <- file.path("test-reports", "covr-tests.html")
           covr::report(x = tests, file = path_tests, browse = FALSE)
           
-          tests <- covr::package_coverage(type = "tests")
+          tests <- covr::package_coverage(type = "tests", function_exclusions = "clear_document_reload")
           tests_list <- covr::coverage_to_list(tests)
           warning("Total Unit Test Coverage: ", tests_list$totalcoverage, "%")
           
@@ -39,10 +39,10 @@ jobs:
           for (i in 1:nrow(tests_df)) {
             name <- row.names(tests_df)[i]
             value <- tests_df[i,]
-            if (value < 100) warning(name, ": ", value, "%")
+            if (value < 90) warning(name, ": ", value, "%")
           }
           
-          if (tests_list$totalcoverage < 100) stop("Code Coverage not 100%")
+          if (tests_list$totalcoverage < 80) stop("Code Coverage below 80%")
         shell: Rscript {0}
           
       - name: Example coverage
@@ -51,7 +51,7 @@ jobs:
           path_examples <- file.path("test-reports", "covr-examples.html")
           covr::report(x = examples, file = path_examples, browse = FALSE)
           
-          examples <- covr::package_coverage(type = "examples")
+          examples <- covr::package_coverage(type = "examples", function_exclusions = "clear_document_reload")
           examples_list <- covr::coverage_to_list(examples)
           warning("Total Examples Coverage: ", examples_list$totalcoverage, "%")
           
@@ -60,7 +60,7 @@ jobs:
           for (i in 1:nrow(examples_df)) {
             name <- row.names(examples_df)[i]
             value <- examples_df[i,]
-            if (value < 100) warning(name, ": ", value, "%")
+            if (value < 90) warning(name, ": ", value, "%")
           }
         shell: Rscript {0}
         
